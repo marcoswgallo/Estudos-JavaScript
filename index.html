@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <canvas id="folha" width="600" height="500"></canvas>
+        <script>
+
+            window.onload = function(){
+                setInterval(executar, 1000 / 30);
+            }
+            
+            var posicaoBolaX = posicaoBolaY = 10;
+
+            function executar(){
+                // todo o codigo do jogo
+                var folhaDesenho = document.getElementById("folha");
+                var areaDesenho = folhaDesenho.getContext("2d");
+
+                var larguraCampo = 600;
+                var alturaCampo = 500;
+                var espesurraRede = 5;
+
+                var diametroBola = 10;
+
+                areaDesenho.fillStyle = "#286047";
+            
+                areaDesenho.fillRect(0, 0, larguraCampo, alturaCampo);
+
+                areaDesenho.fillStyle = "#FFFFFF"
+
+                areaDesenho.fillRect(larguraCampo / 2 - espesurraRede / 2, 0, espesurraRede, alturaCampo);
+             
+                // Desenha a bola  
+                areaDesenho.fillRect(posicaoBolaX - diametroBola / 2, posicaoBolaY - diametroBola / 2, diametroBola, diametroBola);
+                
+                posicaoBolaX = posicaoBolaX + 1;
+                posicaoBolaY = posicaoBolaY + 1;
+            }
+        </script>
+    </body>
+</html>
